@@ -107,10 +107,10 @@ function draw(){
     let level = mic.getLevel()
     // console.log(level);
   
-    let wght = map(level*2, 0, 1, 300, 900)
+    let wght = map(level, 0, 1, 300, 900)
     let slnt = 0
   
-    txt.style("font-variation-settings", `'wght' ${wght}, 'slnt' ${slnt}`)
+    txt.style("font-variation-settings", `'wght' ${wght}`)
 
     // image(garfieldBounce, 0, 0);
 
