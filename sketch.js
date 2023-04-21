@@ -35,7 +35,7 @@ let txt;
 let mic;
 
 function preload() {
-    // garfieldImg = loadImage('garfield/garfield000.png');
+    garfieldImg = loadImage('garfield/garfield000.png');
     apolloImg = loadImage('apollo/earthapollo003.png');
 
         for (let t = 0; t < 68; t++) {
@@ -70,15 +70,27 @@ function setup(){
     w = 100;
     apollox - 300;
 
+    drawGrid();
+
+    // image(apolloImg,w);
+    push();
+    translate(width / 2, height / 2);
+    image(apolloImg,xpos, ypos, 100,100);
+    // xpos += random(-2, 2);
+    // ypos += random(-2, 2);
+    pop();
+    // w = w - 0.25;
+    // apollox = apollox - 1;
+
+    garfieldImg.resize(220, 120);
     // garfieldBounce = createGraphics(window.innerWidth, window.innerHeight);
       
 }
 
-
-
-
 function draw(){
-    drawGrid();
+    move();
+    bounce();
+    display();
 
     // let level = mic.getLevel()
     // console.log(level);
@@ -90,28 +102,7 @@ function draw(){
     
     // drawGarfieldBounce();
     
-    // image(apolloImg,w);
-    push();
-    translate(width / 2, height / 2);
-    image(apolloImg,xpos, ypos, 100,100);
-    // xpos += random(-2, 2);
-    // ypos += random(-2, 2);
-    pop();
-    // w = w - 0.25;
-    // apollox = apollox - 1;
-
-
-    
-
     cursor(HAND);
-    // background(0);
-    fill(255);
-    strokeWeight(3);
-    stroke(255,240,245);
-
-    // move();
-    // bounce();
-    display();
 
     let level = mic.getLevel()
     console.log(level);
@@ -124,6 +115,7 @@ function draw(){
     // image(garfieldBounce, 0, 0);
 
 }
+
 
 function mouseMoved() {
     imageMode(CENTER);
@@ -156,33 +148,31 @@ function drawGrid() {
 
 }
 
-
-
 // function drawGarfieldBounce(){
 
-
-//     function move(){
-//         ball.x = ball.x + ball.xspeed;
-//         ball.y = ball.y + ball.yspeed;
-//     }
+    function move(){
+        ball.x = ball.x + ball.xspeed;
+        ball.y = ball.y + ball.yspeed;
+    }
     
-//     function bounce(){
-//         if (ball.x > width || ball.x < 0){
-//             ball.xspeed = ball.xspeed * -1;
-//         }
+    function bounce(){
+        if (ball.x > width || ball.x < 0){
+            ball.xspeed = ball.xspeed * -1;
+        }
     
-//         if (ball.y > height || ball.y < 0){
-//             ball.yspeed = ball.yspeed * -1;
-//         }
-//     }
+        if (ball.y > height || ball.y < 0){
+            ball.yspeed = ball.yspeed * -1;
+        }
+    }
 
-//     function display(){
-//         translate(width / 2, height / 2);
-//         rotate(radians(fly));
-//         image(garfieldImg, ball.x, ball.y);
-//         garfieldImg.resize(300, 200);
-//         fly += 1;
-//     }
+    function display(){
+        push();
+        translate(width / 2, height / 2);
+        rotate(radians(fly));
+        image(garfieldImg, ball.x, ball.y);
+        fly += 1;
+        pop();
+    }
 
 // }
 
