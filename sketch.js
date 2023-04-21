@@ -105,9 +105,9 @@ function draw(){
     cursor(HAND);
 
     let level = mic.getLevel()
-    console.log(level);
+    // console.log(level);
   
-    let wght = map(level, 0, 0.1, 200, 900)
+    let wght = map(level*2, 0, 1, 300, 900)
     let slnt = 0
   
     txt.style("font-variation-settings", `'wght' ${wght}, 'slnt' ${slnt}`)
@@ -120,7 +120,7 @@ function draw(){
 function mouseMoved() {
     imageMode(CENTER);
     let r = floor(random(68));
-        image(trash[r], mouseX, mouseY);
+    image(trash[r], mouseX, mouseY);
 }
 
 // function mouseMoved() {
@@ -170,7 +170,7 @@ function drawGrid() {
         translate(width / 2, height / 2);
         rotate(radians(fly));
         image(garfieldImg, ball.x, ball.y);
-        fly += 1;
+        fly -= 1;
         pop();
     }
 
