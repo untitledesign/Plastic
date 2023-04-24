@@ -47,10 +47,11 @@ function preload() {
 
 function windowResized() {
     // centerCanvas();
-    resizeCanvas(windowWidth, windowHeight);
+    resizeCanvas(window.innerWidth, window.innerHeight);
 }
 
 function setup(){
+    createMetaTag();
     createCanvas(window.innerWidth, window.innerHeight);
     
     // Mic Start
@@ -189,6 +190,15 @@ function drawGrid() {
         pop();
     }
 
+
+    function createMetaTag() {
+        let meta = createElement('meta');
+        meta.attribute('name', 'viewport');
+        meta.attribute('content', 'user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width,height=device-height');
+        
+        let head = select('head');
+        meta.parent(head);
+      }
 // }
 
 
