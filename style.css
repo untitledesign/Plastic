@@ -60,6 +60,7 @@ html, body, * {
   font-family: 'Gravity Variable';
   font-style: normal;
   font-weight: 300 700;
+  font-stretch: 50% 150%;
   font-display: swap;
   src: url('fonts/ABCGravityVariable-Trial.woff2') format('woff2-variations'),
        url('fonts/ABCGravityVariable-Trial.woff') format('woff-variations'),
@@ -97,8 +98,10 @@ h1 {
 .text {
   font-size: 24px;
   font-family: 'Gravity Variable';
-  font-variation-settings: 'wght' 300;
-  font-variation-settings: 'wdth' 80;
+  /* font-variation-settings: 'wght' 300; */
+  font-variation-settings: 'wght' 300, 'wdth' 80;
+  transition: font-variation-settings 0.3s ease;
+  /* font-variation-settings: 'wdth' 80; */
   /* font-variation-settings: 'wght' 300, 'slnt' 0; */
   margin: 0;
   color: black;

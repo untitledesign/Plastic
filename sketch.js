@@ -58,6 +58,9 @@ function setup(){
     mic = new p5.AudioIn()
     mic.start()
 
+    // amp = new p5.Amplitude();
+    // amp.setInput(mic);
+
     pixelDensity(1);
 
     imageMode(CENTER);
@@ -104,20 +107,32 @@ function draw(){
     
     cursor(HAND);
 
-    let level = mic.getLevel()
-    // console.log(level);
-  
-    let wght = map(level, 0, 1, 300, 900)
-    let slnt = 0
-  
-    txt.style("font-variation-settings", `'wght' ${wght}`)
+    // let level = mic.getLevel();
+    // let level = amp.getLevel();
+    let micLevel = mic.getLevel();
+    console.log(micLevel);
+    let sd = micLevel*1000;
 
+    // let wght = map(sd, 0, 1, sd, sd);
+    let wdth = (sd, sd);
+    // let wdth = map(sd, 50, 150);
+    // txt.style("font-variation-settings", `'wght' ${wght}`);
+    txt.style("font-variation-settings", `'wdth' ${wdth}`);
+    // txt.style("font-variation-settings", `'wght' ${wght}, 'wdth' ${wdth}`);
+
+    // console.log(level);
     // image(garfieldBounce, 0, 0);
 
 }
 
 
 function mouseMoved() {
+    imageMode(CENTER);
+    let r = floor(random(68));
+    image(trash[r], mouseX, mouseY);
+}
+
+function touchMoved() {
     imageMode(CENTER);
     let r = floor(random(68));
     image(trash[r], mouseX, mouseY);
