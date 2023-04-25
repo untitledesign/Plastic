@@ -199,6 +199,17 @@ function drawGrid() {
         let head = select('head');
         meta.parent(head);
       }
+
+
+    function touchStarted () {
+        if (!fullscreen()) {
+          fullscreen(true);
+        }
+      }
+
+      document.ontouchmove = function(event) {
+        event.preventDefault();
+    };
 // }
 
 
