@@ -119,6 +119,6 @@ h1 {
 } */
 
 
-@media only screen and (max-width: 600px) {
+@media only screen and (width <= 375px) and (height <= 667px) {
 
-  }
+}

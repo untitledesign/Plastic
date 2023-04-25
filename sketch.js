@@ -166,50 +166,53 @@ function drawGrid() {
 
 // function drawGarfieldBounce(){
 
-    function move(){
-        ball.x = ball.x + ball.xspeed;
-        ball.y = ball.y + ball.yspeed;
+function move(){
+    ball.x = ball.x + ball.xspeed;
+    ball.y = ball.y + ball.yspeed;
+}
+    
+function bounce(){
+    if (ball.x > width || ball.x < 0){
+        ball.xspeed = ball.xspeed * -1;
     }
     
-    function bounce(){
-        if (ball.x > width || ball.x < 0){
-            ball.xspeed = ball.xspeed * -1;
-        }
-    
-        if (ball.y > height || ball.y < 0){
-            ball.yspeed = ball.yspeed * -1;
-        }
+    if (ball.y > height || ball.y < 0){
+        ball.yspeed = ball.yspeed * -1;
     }
+}
 
-    function display(){
-        push();
-        translate(width / 2, height / 2);
-        rotate(radians(fly));
-        image(garfieldImg, ball.x, ball.y);
-        fly -= 1;
-        pop();
-    }
+function display(){
+    push();
+    translate(width / 2, height / 2);
+    rotate(radians(fly));
+    image(garfieldImg, ball.x, ball.y);
+    fly -= 1;
+    pop();
+}
 
 
-    function createMetaTag() {
-        let meta = createElement('meta');
-        meta.attribute('name', 'viewport');
-        meta.attribute('content', 'user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width,height=device-height');
+function createMetaTag() {
+    let meta = createElement('meta');
+    meta.attribute('name', 'viewport');
+    meta.attribute('content', 'user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width,height=device-height');
         
-        let head = select('head');
-        meta.parent(head);
-      }
+    let head = select('head');
+    meta.parent(head);
+}
 
 
-    function touchStarted () {
-        if (!fullscreen()) {
-          fullscreen(true);
-        }
-      }
+function touchStarted () {
+    if (!fullscreen()) {
+        fullscreen(true);
+    }
+    getAudioContext().resume();
+    mic = new p5.AudioIn();
+    mic.start();
+}
 
-      document.ontouchmove = function(event) {
+    document.ontouchmove = function(event) {
         event.preventDefault();
-    };
+}
 // }
 
 
