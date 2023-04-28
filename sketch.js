@@ -34,6 +34,7 @@ let ypos = 0;
 let txt;
 let mic;
 
+
 function preload() {
     garfieldImg = loadImage('garfield/garfield000.png');
     apolloImg = loadImage('apollo/earthapollo003.png');
@@ -56,8 +57,10 @@ function setup(){
     
     // Mic Start
     txt = select(".text")
-    mic = new p5.AudioIn()
-    mic.start()
+
+    mic = new p5.AudioIn();
+    mic.start();
+    getAudioContext().resume();
 
     // amp = new p5.Amplitude();
     // amp.setInput(mic);
@@ -202,16 +205,22 @@ function createMetaTag() {
 
 
 function touchStarted () {
-    if (!fullscreen()) {
-        fullscreen(true);
-    }
     getAudioContext().resume();
     mic = new p5.AudioIn();
     mic.start();
+    // getAudioContext().resume();
+    // if (!fullscreen()) {
+    //     fullscreen(true);
+    // }
+    // let fs = fullscreen();
+    // fullscreen(!fs);
+
+    // mic = new p5.AudioIn();
+    // mic.start();
 }
 
     document.ontouchmove = function(event) {
-        event.preventDefault();
+    // event.preventDefault();
 }
 // }
 

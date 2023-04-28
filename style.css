@@ -87,6 +87,9 @@ h1 {
   animation-timing-function: linear; */
 }
 
+.sortable-handler {
+  touch-action: none;
+}
 
 .box {
   /* background-color: black; */
@@ -108,6 +111,29 @@ h1 {
   
   display: flex;
 }
+
+/* #Sound {
+  background-color: transparent;
+  border: solid;
+  border-width: 2px;
+  padding: 10px 30px;
+  border-radius: 40px;
+  text-align: center;
+  display: inline-block;
+  font-size: 21px;
+  position: fixed;
+  left: 2%;
+  top: 5%;
+ font-family: 'Syne', sans-serif;
+cursor: none;
+}
+
+#Sound:hover {
+  background-color: transparent;
+  color: white;
+
+  
+} */
 
 /* @keyframes animate {
   0% {
