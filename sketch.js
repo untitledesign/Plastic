@@ -205,7 +205,10 @@ function createMetaTag() {
 
 
 function touchStarted () {
-    getAudioContext().resume();
+    if (getAudioContext().state !== 'running') {
+        getAudioContext().resume();
+      }
+    // getAudioContext().resume();
     mic = new p5.AudioIn();
     mic.start();
     // getAudioContext().resume();
